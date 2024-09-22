@@ -4,17 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Available Apps</title>
-    <link rel="stylesheet" href="apps.css"> <!-- Link to CSS -->
+    <link rel="stylesheet" href="apps.css"> <!-- Link to the CSS file -->
 </head>
 <body>
-    <h1>Available Apps</h1>
-    
-    <div style="position: relative; display: inline-block;">
-        <button class="round-button" onclick="goToMathQuiz()"></button>
-        <div class="button-text">Go to Math Quiz</div>
+    <div class="container">
+        <h1>Available Apps</h1>
+        
+        <div class="button-container">
+            <div class="math-quiz-wrapper">
+                <button class="round-button math-quiz-button" onclick="goToMathQuiz()"></button>
+                <div class="button-text">Math Quiz</div>
+            </div>
+            
+            <div class="mathletic-wrapper">
+                <button class="round-button mathletic-button" onclick="goToMathQuestions()"></button>
+                <div class="button-text">Mathletic App</div>
+            </div>
+        </div>
+        
+        <button class="home-button" onclick="goToUserHome()">User Home</button>
     </div>
-    <button onclick="logout()">Logout</button>
 
-    <script src="st.js"></script> <!-- Link to JavaScript -->
+    <script src="apps.js"></script> <!-- Link to JavaScript -->
 </body>
 </html>
