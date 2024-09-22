@@ -1,89 +1,147 @@
+// Check if users exist in localStorage
 function checkAccount() {
-    const storedEmail = localStorage.getItem('email');
+    const users = JSON.parse(localStorage.getItem('users')) || [];
     
-    if (storedEmail) {
-        // If there is an email stored, redirect to sign-in page
-        window.location.href = 'profile.html';
+    if (users.length > 0) {
+        window.location.href = 'profile.html'; // Redirect to sign-in page
     } else {
-        // No account found, proceed to sign up
         alert("No account found. You can create one.");
-        goToSignUp();
+        goToSignUp(); // Redirect to sign-up page
     }
 }
 
+// Redirect to sign-up page
 function goToSignUp() {
-    window.location.href = 'signup.html'; // Redirect to sign-up page
+    window.location.href = 'signup.html'; 
 }
 
+// Validate the user's input
+function validateInput(name, surname, username, email, password) {
+    // Name and surname validation
+    const namePattern = /^[A-Z][a-z]*$/;
+    if (!namePattern.test(name)) {
+        alert("Name must start with an uppercase letter and be followed by lowercase letters.");
+        return false;
+    }
+    
+    if (!namePattern.test(surname)) {
+        alert("Surname must start with an uppercase letter and be followed by lowercase letters.");
+        return false;
+    }
+
+    // Username validation: must contain at least one number
+    const usernamePattern = /^(?=.*\d)/;
+    if (!usernamePattern.test(username)) {
+        alert("Username must contain at least one number.");
+        return false;
+    }
+
+    // Email validation: must be in a valid email format
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+        alert("Please enter a valid email address.");
+        return false;
+    }
+
+    // Password validation: must be 7 to 12 characters long, contain at least one uppercase letter, one number, and one special character
+    const passwordPattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{7,12}$/;
+    if (!passwordPattern.test(password)) {
+        alert("Password must be between 7 and 12 characters long, contain at least one uppercase letter, one number, and one special character.");
+        return false;
+    }
+
+    return true;
+}
+
+// Create a new account
 function createAccount() {
+    const name = document.getElementById('newName').value;
+    const surname = document.getElementById('newSurname').value;
+    const username = document.getElementById('newUsername').value;
     const email = document.getElementById('newEmail').value;
     const password = document.getElementById('newPassword').value;
 
-    // Save to localStorage
-    localStorage.setItem('email', email);
-    localStorage.setItem('password', password);
+    // Validate inputs
+    if (!validateInput(name, surname, username, email, password)) {
+        return; // Stop execution if validation fails
+    }
+
+    let users = JSON.parse(localStorage.getItem('users')) || [];
+    
+    // Check if the email or username already exists
+    const emailExists = users.some(user => user.email === email);
+    const usernameExists = users.some(user => user.username === username);
+    
+    if (emailExists) {
+        alert("This email is already registered. Please use a different email.");
+        return; 
+    }
+    
+    if (usernameExists) {
+        alert("This username is already taken. Please choose a different username.");
+        return; 
+    }
+
+    // Add the new user to the array and save
+    users.push({ name, surname, username, email, password });
+    localStorage.setItem('users', JSON.stringify(users));
 
     alert("Account created successfully! Redirecting to the home page...");
-    window.location.href = 'index.html'; // Redirect to home page
-}
-
-function saveAndRedirect() {
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-
-    // Save to localStorage
-    localStorage.setItem('email', email);
-    localStorage.setItem('password', password);
-
-    alert("Details saved successfully! Redirecting to the home page...");
     window.location.href = 'st.html'; // Redirect to home page
 }
 
+// Confirm sign in and redirect
 function confirmSignIn() {
-    const email = document.getElementById('email').value;
+    const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
 
-    const storedEmail = localStorage.getItem('email');
-    const storedPassword = localStorage.getItem('password');
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const user = users.find(user => user.username === username && user.password === password);
 
-    if (email === storedEmail && password === storedPassword) {
-        // Redirect to info page
-        window.location.href = 'info.html';
+    if (user) {
+        localStorage.setItem('currentUserEmail', JSON.stringify(user.email)); // Store email for later use
+        window.location.href = 'user_home.html'; // Redirect to user home page
     } else {
-        alert("Invalid email or password.");
+        alert("Invalid username or password.");
     }
 }
 
-function displayProfile() {
-    const email = localStorage.getItem('email');
-    if (email) {
-        document.getElementById('profileInfo').innerText = `Email: ${email}`;
+// View user details on user_details.html
+function displayUserDetails() {
+    const email = JSON.parse(localStorage.getItem('currentUserEmail'));
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const user = users.find(user => user.email === email);
+
+    const userDetailsDiv = document.getElementById('userDetails');
+    if (user) {
+        userDetailsDiv.innerText = `Name: ${user.name}, Surname: ${user.surname}, Username: ${user.username}, Email: ${user.email}, Password: ${user.password}`;
     } else {
-        document.getElementById('profileInfo').innerText = 'No profile found.';
+        userDetailsDiv.innerText = 'No user information found.';
     }
 }
 
-// Load profile details on page load
-if (document.getElementById('profileInfo')) {
-    window.onload = displayProfile;
+// Go to apps page
+function goToApps() {
+    window.location.href = 'apps.html'; // Redirect to apps page
 }
 
 // Logout function
 function logout() {
-    localStorage.removeItem('email');
-    localStorage.removeItem('password');
-    window.location.href = 'st.html'; // Redirect to home page
+    window.location.href = 'st.html'; // Redirect to home page without removing any data
 }
 
 // Display user information on info page
-const userInfoDiv = document.getElementById('userInfo');
-if (userInfoDiv) {
-    const email = localStorage.getItem('email');
-    const password = localStorage.getItem('password');
-
-    if (email && password) {
-        userInfoDiv.innerText = `Email: ${email}, Password: ${password}`;
+function displayUserInfo() {
+    const userInfoDiv = document.getElementById('userInfo');
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    if (users.length > 0) {
+        userInfoDiv.innerText = users.map(user => `Email: ${user.email}`).join(', ');
     } else {
         userInfoDiv.innerText = 'No user information found.';
     }
+}
+
+// Load user details on page load if applicable (on user_details.html)
+if (document.getElementById('userDetails')) {
+    window.onload = displayUserDetails;
 }

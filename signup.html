@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In</title>
+    <title>Sign Up</title>
     <link rel="stylesheet" href="st.css">
 </head>
 <body>
 
-    <h1>Sign In</h1>
-    <input type="email" id="email" placeholder="Enter your email" required>
-    <input type="password" id="password" placeholder="Enter your password" required>
-    <button onclick="saveAndRedirect()">Sign In</button>
-
-    <h2>Profile Details:</h2>
-    <div id="profileInfo"></div>
+    <h1>Create Account</h1>
+    <input type="text" id="newName" placeholder="Enter your name" required>
+    <input type="text" id="newSurname" placeholder="Enter your surname" required>
+    <input type="text" id="newUsername" placeholder="Enter your username" required>
+    <input type="email" id="newEmail" placeholder="Enter your email" required>
+    <input type="password" id="newPassword" placeholder="Enter your password" required>
+    <button onclick="createAccount()">Sign Up</button>
 
     <script src="st.js"></script>
 </body>
