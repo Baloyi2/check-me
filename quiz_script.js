@@ -118,11 +118,17 @@ function displayScore() {
     const quizContainer = document.getElementById('quiz');
     const scoreDisplay = document.getElementById('score');
     const restartButton = document.getElementById('restartButton');
+    const continueButton = document.getElementById('continueButton');
 
     quizContainer.style.display = 'none';
     scoreDisplay.style.display = 'block';
     scoreDisplay.innerHTML = `You scored ${score} out of ${totalQuestions}.`;
     restartButton.style.display = 'block';
+    continueButton.style.display = 'block'; // Show continue button
+}
+
+function goToGrades() {
+    window.location.href = 'grades.html'; // Adjust this to your actual grades page URL
 }
 
 function restartQuiz() {

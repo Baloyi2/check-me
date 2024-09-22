@@ -1,0 +1,69 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #74ebd5, #acb6e5);
+    text-align: center;
+    margin: 0;
+    padding: 50px 20px;
+    color: #333;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+button {
+    padding: 15px 30px;
+    margin: 10px;
+    font-size: 1.2rem;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+button:nth-child(1) {
+    background-color: #ff6b6b; /* Grade 10 button color */
+}
+
+button:nth-child(2) {
+    background-color: #f7d94c; /* Grade 11 button color */
+}
+
+button:nth-child(3) {
+    background-color: #6bcf84; /* Grade 12 button color */
+}
+
+button:focus {
+    outline: none;
+}
+
+button:hover:nth-child(1) {
+    background-color: #ff4d4d; /* Darker shade on hover for Grade 10 */
+}
+
+button:hover:nth-child(2) {
+    background-color: #f1c73a; /* Darker shade on hover for Grade 11 */
+}
+
+button:hover:nth-child(3) {
+    background-color: #5abf6b; /* Darker shade on hover for Grade 12 */
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    button {
+        width: 90%;
+        font-size: 1rem;
+    }
+}
