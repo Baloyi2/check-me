@@ -28,15 +28,21 @@ button {
     width: 100px; /* Set a fixed width */
     height: 100px; /* Set a fixed height */
     border-radius: 50%; /* Make it round */
-    font-size: 1rem; /* Adjust font size */
     display: flex; /* Use flexbox to center content */
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
-    background-color: #6bcf84; /* Button color */
+    background-image: url('mQ.jpg'); /* Add your background image */
+    background-size: cover; /* Cover the entire button */
+    background-position: center; /* Center the image */
+}
+
+.button-text {
+    margin-top: 10px; /* Space above the text */
+    color: white; /* Text color */
+    font-weight: bold; /* Optional: make text bold */
 }
 
 .round-button:hover {
-    background-color: #5abf6b; /* Darker shade on hover */
     transform: scale(1.05); /* Scale on hover */
 }
 
