@@ -45,16 +45,21 @@ h1 {
     display: flex; /* Use Flexbox for alignment */
     align-items: center; /* Center items vertically */
     justify-content: center; /* Center items horizontally */
-    width: 300px; /* Set a fixed width to match the longest answer */
-    background-color: #ecf0f1; /* Light background for answers */
+    width: 300px; /* Set a fixed width */
+    background-color: #ecf0f1; /* Light background */
     padding: 10px; /* Padding for answer options */
     border-radius: 5px; /* Rounded corners */
     margin: 5px 0; /* Space between answers */
     transition: background-color 0.3s; /* Smooth transition for hover effect */
+    cursor: pointer; /* Pointer cursor on hover */
 }
 
 .answer:hover {
-    background-color: #d5dbdb; /* Change background on hover */
+    background-color: #10eeee; /* Change background on hover */
+}
+
+.answer.selected {
+    background-color: yellow; /* Yellow background when selected */
 }
 
 .correct {
@@ -90,5 +95,5 @@ button:hover {
 #feedback {
     margin-top: 10px;
     font-weight: bold; /* Make feedback bold for visibility */
-    color: #e74c3c; /* Color for feedback messages */
+    color: black; /* Change feedback text color to black */
 }

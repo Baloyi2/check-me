@@ -22,8 +22,8 @@ function generateRandomQuestions() {
     quizData.length = 0; // Clear previous quiz data
 
     for (let i = 0; i < totalQuestions; i++) {
-        const num1 = Math.floor(Math.random() * 321) + 1; // Random number between 1 and 321
-        const num2 = Math.floor(Math.random() * 321) + 1; // Random number between 1 and 321
+        const num1 = Math.floor(Math.random() * 176); // Random number between 0 and 175
+        const num2 = Math.floor(Math.random() * 176); // Random number between 0 and 175
         const operators = ['+', '-', '*', '/'];
         const operator = operators[Math.floor(Math.random() * operators.length)]; // Randomly choose an operator
 
@@ -37,7 +37,7 @@ function generateRandomQuestions() {
         } else if (operator === '*') {
             correctAnswer = num1 * num2;
         } else if (operator === '/') {
-            correctAnswer = num2 !== 0 ? (num1 / num2).toFixed(2) : num1; // Avoid division by zero
+            correctAnswer = num2 !== 0 ? Math.floor(num1 / num2) : num1; // Avoid division by zero
         }
 
         // Generate answer options
@@ -59,8 +59,10 @@ function generateAnswerOptions(correctAnswer) {
     answers.add(correctAnswer);
 
     while (answers.size < 4) {
-        const randomAnswer = (Math.random() * 640 - 320).toFixed(2); // Generate answers within a range
-        answers.add(randomAnswer);
+        const randomAnswer = Math.floor(Math.random() * 176);
+        if (randomAnswer !== correctAnswer) {
+            answers.add(randomAnswer);
+        }
     }
 
     return Array.from(answers).sort(() => Math.random() - 0.5); // Shuffle the answers
@@ -73,35 +75,29 @@ function loadQuestion() {
     quizContainer.innerHTML = `
         <div class="question">${questionData.question}</div>
         ${questionData.answers.map((answer, index) => `
-            <div class="answer">
-                <input type="radio" name="answer" id="answer${index}" value="${index}">
-                <label for="answer${index}">${answer}</label>
+            <div class="answer" onclick="selectAnswer(${index}, this)">
+                <span>${answer}</span>
             </div>
         `).join('')}
     `;
     quizContainer.style.display = 'block'; // Show quiz container
-    document.getElementById('nextButton').style.display = 'block'; // Show next button
     document.getElementById('feedback').style.display = 'none'; // Hide feedback initially
 }
 
-function nextQuestion() {
-    const answers = document.getElementsByName('answer');
-    let selectedAnswer;
-
-    answers.forEach(answer => {
-        if (answer.checked) {
-            selectedAnswer = parseInt(answer.value);
-        }
-    });
-
-    const feedback = document.getElementById('feedback');
+function selectAnswer(index, element) {
     const questionData = quizData[currentQuestionIndex];
+    const feedback = document.getElementById('feedback');
 
-    if (selectedAnswer === questionData.correct) {
+    // Highlight the selected answer in gold
+    element.style.backgroundColor = 'gold';
+
+    if (index === questionData.correct) {
         score++;
         feedback.textContent = "Correct!";
+        feedback.className = 'correct'; // Add correct class for styling
     } else {
         feedback.textContent = "Incorrect. The correct answer was " + questionData.answers[questionData.correct] + ".";
+        feedback.className = 'incorrect'; // Add incorrect class for styling
     }
 
     feedback.style.display = 'block'; // Show feedback
@@ -121,11 +117,9 @@ function nextQuestion() {
 function displayScore() {
     const quizContainer = document.getElementById('quiz');
     const scoreDisplay = document.getElementById('score');
-    const nextButton = document.getElementById('nextButton');
     const restartButton = document.getElementById('restartButton');
 
     quizContainer.style.display = 'none';
-    nextButton.style.display = 'none';
     scoreDisplay.style.display = 'block';
     scoreDisplay.innerHTML = `You scored ${score} out of ${totalQuestions}.`;
     restartButton.style.display = 'block';
