@@ -4,16 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Details</title>
-    <link rel="stylesheet" href="st.css">
+    <link rel="stylesheet" href="user_details.css"> <!-- Link to user_details.css -->
 </head>
 <body>
 
     <h1>User Details</h1>
-    <div id="userDetails"></div>
     
-    <button onclick="goToUserHome()">Go to User Home</button>
-    <button onclick="logout()">Logout</button>
+    <div id="profilePictureSection">
+        <input type="file" id="profileImageInput" accept="image/*" style="display: none;" onchange="loadProfileImage(event)">
+        <button id="uploadButton" onclick="document.getElementById('profileImageInput').click();">
+            Upload Profile Picture
+        </button>
+    </div>
+    
+    <div id="userDetails" style="display: none;">
+        <!-- User details content can be dynamically inserted here -->
+        <p>Name: John Doe</p>
+        <p>Email: johndoe@example.com</p>
+        <p>Role: User</p>
+    </div>
+    
+    <div>
+        <button onclick="goToUserHome()">Go to User Home</button>
+        <button onclick="logout()">Logout</button>
+    </div>
 
-    <script src="st.js"></script>
+    <script src="st.js"></script> <!-- Main JavaScript file -->
 </body>
 </html>

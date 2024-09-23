@@ -1,0 +1,94 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f8ff; /* Light background color */
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    color: #333; /* Text color */
+    text-align: center; /* Center text */
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #4a90e2; /* Heading color */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+#profilePictureSection {
+    text-align: center; /* Center align the profile picture section */
+    margin-bottom: 20px; /* Space below the section */
+}
+
+#uploadButton {
+    border: none;
+    border-radius: 50%; /* Make it circular */
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.3s ease;
+    width: 150px; /* Set width */
+    height: 150px; /* Set height */
+}
+
+/* Button hover effect */
+#uploadButton:hover {
+    transform: scale(1.05); /* Slightly grow on hover */
+}
+
+#userDetails {
+    margin: 20px 0;
+    padding: 15px;
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 10px; /* Rounded corners */
+    background-color: #ffffff; /* White background for user details */
+    width: 80%; /* Width for user details box */
+    max-width: 600px; /* Maximum width */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    margin: 5px; /* Space between buttons */
+}
+
+/* Styles for buttons */
+button:hover {
+    transform: scale(1.05); /* Slightly grow on hover */
+}
+
+button:nth-of-type(1) {
+    background-color: #4caf50; /* Green for Go to User Home */
+    color: white;
+}
+
+button:nth-of-type(1):hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+button:nth-of-type(2) {
+    background-color: #f44336; /* Red for Logout */
+    color: white;
+}
+
+button:nth-of-type(2):hover {
+    background-color: #e53935; /* Darker red on hover */
+}
+
+/* Media Query for Responsive Design */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem; /* Smaller font size for smaller screens */
+    }
+
+    button {
+        width: 100%; /* Full width on small screens */
+    }
+}
