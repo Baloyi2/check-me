@@ -107,7 +107,7 @@ function displayUserDetails() {
 
     const userDetailsDiv = document.getElementById('userDetails');
     if (user) {
-        userDetailsDiv.innerText = `Name: ${user.name}, Surname: ${user.surname}, Username: ${user.username}, Email: ${user.email}`;
+      userDetailsDiv.innerText = `Name: ${user.name}, Surname: ${user.surname}, Username: ${user.username}, Email: ${user.email}`;
     } else {
         userDetailsDiv.innerText = 'No user information found.';
     }
