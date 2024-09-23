@@ -1,0 +1,125 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url('user_home.jpg'), linear-gradient(135deg, rgba(116, 235, 213, 0.7), rgba(172, 182, 229, 0.7));
+    background-size: cover; /* Cover the entire viewport */
+    background-position: center; /* Center the background image */
+    margin: 0;
+    padding: 20px;
+    color: #333;
+    display: flex;
+    justify-content: center; /* Center the content */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Full viewport height */
+}
+
+.container {
+    text-align: center; /* Center text */
+    background: rgba(255, 255, 255, 0.9); /* White background with transparency */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    padding: 40px; /* Padding around the content */
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #333;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 15px; /* Space between buttons */
+}
+
+/* Styles for the Account Button */
+.account-button {
+    width: 100px; /* Set a fixed width */
+    height: 100px; /* Set a fixed height */
+    border-radius: 50%; /* Make it round */
+    display: flex; /* Use flexbox to center content */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    border: none; /* No border */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: transform 0.2s ease; /* Transition effect */
+    background-image: url('account.jpg'); /* Use the "account" image */
+    background-size: cover; /* Cover the button area with the image */
+    background-position: center; /* Center the background image */
+    color: transparent; /* Hide text */
+}
+
+.account-button:hover {
+    transform: scale(1.05); /* Slightly grow on hover */
+}
+
+.account-wrapper {
+    display: flex;
+    flex-direction: column; /* Stack button and text vertically */
+    align-items: center; /* Center align the content */
+}
+
+.account-wrapper span {
+    margin-top: 10px; /* Space between button and text */
+    color: #333; /* Text color */
+    font-weight: bold; /* Optional: make text bold */
+}
+
+/* Styles for the Apps Button */
+.action-button {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    background-color: #6bcf84; /* Button color */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Button shadow */
+}
+
+.action-button:hover {
+    background-color: #5abf6b; /* Darker shade on hover */
+    transform: scale(1.05); /* Slightly grow on hover */
+}
+
+.action-button:focus {
+    outline: none; /* Remove default focus outline */
+}
+
+/* Media Query for Responsive Design */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem; /* Smaller font size for smaller screens */
+    }
+
+    .action-button {
+        width: 90%; /* Full width on small screens */
+        font-size: 1rem; /* Smaller font size */
+    }
+}
+.small-button {
+    display: block; /* Make the button a block element */
+    margin: auto; /* Center the button horizontally */
+    width: 40%; /* Set width to 40% */
+    padding: 10px 15px; /* Padding for button */
+    font-size: 0.9rem; /* Font size */
+    color: #ffffff; /* Text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    background-color: #6bcf84; /* Button color */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Button shadow */
+    transition: background 0.3s ease, transform 0.2s ease; /* Transition effects */
+}
+
+.small-button:hover {
+    background-color: #5abf6b; /* Darker shade on hover */
+    transform: scale(1.05); /* Slightly grow on hover */
+}
+
+.small-button:focus {
+    outline: none; /* Remove default focus outline */
+}
+

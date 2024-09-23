@@ -5,7 +5,7 @@ function goToMathQuiz() {
 
 function goToMathQuestions() {
     // Redirect to Math Questions and Answers page
-    window.location.href = 'math_questions.html'; // Change this to the actual URL
+    window.location.href = 'grades.html'; // Redirecting to grades.html for Mathletic App
 }
 
 function goToUserHome() {

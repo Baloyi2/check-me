@@ -3,16 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Home</title>
-    <link rel="stylesheet" href="st.css">
+    <title>DO MATH WITH US</title>
+    <link rel="stylesheet" href="user_home.css">
 </head>
 <body>
-
-    <h1>User Home</h1>
-    <button onclick="goToUserDetails()">View User Details</button>
-    <button onclick="goToApps()">Go to Apps</button>
-    <button onclick="logout()">Logout</button>
-
+    <div class="container">
+        <h1>DO MATH WITH US</h1>
+        <div class="button-container">
+            <div class="account-wrapper">
+                <button class="account-button" onclick="goToUserDetails()"></button>
+                <span>Account</span>
+            </div>
+            <button class="small-button" onclick="goToUserDetails()">Details</button>
+            <div class="apps-wrapper">
+                <button class="action-button" onclick="goToApps()"></button>
+                <span>Apps</span>
+            </div>
+        </div>
+    </div>
     <script src="st.js"></script>
 </body>
 </html>
