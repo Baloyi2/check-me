@@ -1,0 +1,101 @@
+/* signup.css */
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f8ff; /* Light background color */
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    color: #333; /* Text color */
+    text-align: center; /* Center text */
+    position: relative; /* Enable absolute positioning of children */
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #4a90e2; /* Heading color */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+.container {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center; /* Center text in container */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 50%; /* Set width to 50% */
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    line-height: 1.5; /* Consistent line height */
+    display: inline-block; /* Align inputs consistently */
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    border-color: #5cb85c;
+    outline: none;
+}
+
+input::placeholder {
+    color: #aaa;
+}
+
+button {
+    padding: 12px;
+    background-color: #5cb85c;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 10px; /* Space between buttons */
+    width: max-content; /* Set width to fit the content */
+}
+
+button:hover {
+    background-color: #4cae4c;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+button:last-of-type {
+    background-color: #d9534f;
+}
+
+button:last-of-type:hover {
+    background-color: #c9302c;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem; /* Smaller font size for smaller screens */
+    }
+    button {
+        padding: 10px; /* Adjust button padding */
+    }
+}

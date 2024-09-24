@@ -4,19 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
-    <link rel="stylesheet" href="st.css">
+    <link rel="stylesheet" href="signup.css"> <!-- Updated link to CSS file -->
 </head>
 <body>
 
     <h1>Create Account</h1>
+    <div>
     <input type="text" id="newName" placeholder="Enter your name" required>
     <input type="text" id="newSurname" placeholder="Enter your surname" required>
     <input type="text" id="newUsername" placeholder="Enter your username" required>
     <input type="email" id="newEmail" placeholder="Enter your email" required>
     <input type="password" id="newPassword" placeholder="Enter your password" required>
-    
+</div>
     <button onclick="createAccount()">Sign Up</button>
-    <button onclick="goToHome()">Back to Home</button>
+    <button onclick="goToHome()">Back</button> <!-- Changed button text here -->
 
     <script src="st.js"></script>
 </body>
