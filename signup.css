@@ -91,7 +91,7 @@ button:last-of-type:hover {
 }
 
 /* Responsive Design */
-@media (max-width: 600px) {
+@media (max-width: 50%) {
     h1 {
         font-size: 2rem; /* Smaller font size for smaller screens */
     }
