@@ -119,8 +119,7 @@ button.remove-account:hover {
     h1 {
         font-size: 2rem; /* Smaller font size for smaller screens */
     }
-
-    button {
+    button.remove-account,button.logout {
         width: auto; /* Set width to auto to fit content */
         padding: 10px 20px; /* Add padding for better appearance */
     }
