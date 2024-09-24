@@ -11,7 +11,6 @@ const routes = {
 // Check if users exist in localStorage
 function checkAccount() {
     const users = JSON.parse(localStorage.getItem('users')) || [];
-    
     if (users.length > 0) {
         window.location.href = routes.profile; // Redirect to sign-in page
     } else {
@@ -20,19 +19,47 @@ function checkAccount() {
     }
 }
 
-// Redirect to sign-up page
+// Redirect functions
 function goToSignUp() {
     window.location.href = routes.signUp; 
 }
 
-// Redirect to user details page
+function goToUserHome() {
+    window.location.href = routes.userHome; 
+}
+
 function goToUserDetails() {
     window.location.href = routes.userDetails; // Redirect to user details page
 }
 
-// Redirect to user home page
-function goToUserHome() {
-    window.location.href = routes.userHome; // Redirect to user home page
+function goToApps() {
+    window.location.href = routes.apps; // Redirect to apps page
+}
+
+function goToHome() {
+    window.location.href = routes.home; // Redirect to home page
+}
+
+function logout() {
+    window.location.href = routes.home; // Redirect to home page
+}
+
+// Remove account function
+function removeAccount() {
+    const confirmation = confirm("Are you sure you want to delete your account? This action cannot be undone.");
+    if (confirmation) {
+        const username = JSON.parse(localStorage.getItem('currentUser'));
+        let users = JSON.parse(localStorage.getItem('users')) || [];
+        
+        users = users.filter(user => user.username !== username); // Remove user
+        localStorage.setItem('users', JSON.stringify(users)); // Update localStorage
+
+        alert("Account details deleted.");
+        localStorage.removeItem('currentUser'); // Clear current user
+        goToHome(); // Redirect to home page
+    } else {
+        alert("Account deletion canceled."); // Optional feedback
+    }
 }
 
 // Validate the user's input
@@ -86,7 +113,7 @@ function createAccount() {
         return;
     }
 
-    users.push({ name, surname, username, email, password, profileImage: '' });
+    users.push({ name, surname, username, email, password });
     localStorage.setItem('users', JSON.stringify(users));
 
     alert("Account created successfully! Redirecting to the home page...");
@@ -102,24 +129,32 @@ function confirmSignIn() {
     const user = users.find(user => user.username === username && user.password === password);
 
     if (user) {
-        localStorage.setItem('currentUser', JSON.stringify(user.username)); // Store the username
+        localStorage.setItem('currentUser', JSON.stringify(user.username)); // Store username for session
+        localStorage.setItem('currentUserEmail', JSON.stringify(user.email));
         window.location.href = routes.userHome; // Redirect to user home page
     } else {
         alert("Invalid username or password.");
     }
 }
 
-// View user details on user_details.html
+// Display user details on user_details.html
 function displayUserDetails() {
-    const username = JSON.parse(localStorage.getItem('currentUser')).username;
+    const username = JSON.parse(localStorage.getItem('currentUser'));
     const users = JSON.parse(localStorage.getItem('users')) || [];
     const user = users.find(user => user.username === username);
 
     const userDetailsDiv = document.getElementById('userDetails');
-    const uploadButton = document.getElementById('uploadButton');
-
+    
     if (user) {
-        userDetailsDiv.innerText = `Name: ${user.name}, Surname: ${user.surname}, Username: ${user.username}, Email: ${user.email}`;
+        userDetailsDiv.innerHTML = `
+            <p>Name: ${user.name}</p>
+            <p>Surname: ${user.surname}</p>
+            <p>Username: ${user.username}</p>
+            <p>Email: ${user.email}</p>
+        `;
+        userDetailsDiv.style.display = 'block'; // Show user details
+
+        const uploadButton = document.getElementById('uploadButton');
         if (user.profileImage) {
             uploadButton.style.backgroundImage = `url(${user.profileImage})`;
             uploadButton.style.backgroundSize = 'cover';
@@ -129,16 +164,6 @@ function displayUserDetails() {
     } else {
         userDetailsDiv.innerText = 'No user information found.';
     }
-}
-
-// Go to apps page
-function goToApps() {
-    window.location.href = routes.apps; // Redirect to apps page
-}
-
-// Logout function
-function logout() {
-    window.location.href = routes.home; // Redirect to home page without removing any data
 }
 
 // Profile picture upload functionality
@@ -154,7 +179,7 @@ function loadProfileImage(event) {
         uploadButton.style.color = 'transparent'; // Hide text to show the image only
 
         // Save the image URL to the user's data in localStorage
-        const username = JSON.parse(localStorage.getItem('currentUser')).username;
+        const username = JSON.parse(localStorage.getItem('currentUser'));
         const users = JSON.parse(localStorage.getItem('users')) || [];
         const userIndex = users.findIndex(user => user.username === username);
         
@@ -165,7 +190,7 @@ function loadProfileImage(event) {
     }
 }
 
-// Load user details on page load if applicable (on user_details.html)
+// Load user details on page load if applicable
 if (document.getElementById('userDetails')) {
     window.onload = displayUserDetails;
 }

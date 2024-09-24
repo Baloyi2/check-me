@@ -10,6 +10,7 @@ body {
     height: 100vh; /* Full viewport height */
     color: #333; /* Text color */
     text-align: center; /* Center text */
+    position: relative; /* Enable absolute positioning of children */
 }
 
 h1 {
@@ -24,62 +25,93 @@ h1 {
     margin-bottom: 20px; /* Space below the section */
 }
 
-#uploadButton {
+button.uploadButton {
     border: none;
     border-radius: 50%; /* Make it circular */
     cursor: pointer;
-    transition: transform 0.2s ease, background 0.3s ease;
+    transition: transform 0.2s ease;
     width: 150px; /* Set width */
     height: 150px; /* Set height */
+    background-color: #d3d3d3; /* Light gray background color */
+    color: white; /* Text color */
+    display: flex; /* Use flexbox to center the text */
+    justify-content: center; /* Center text horizontally */
+    align-items: center; /* Center text vertically */
+    text-align: center; /* Center text */
+    font-weight: bold; /* Make text bold */
+}
+
+/* Position the Home button */
+.home-container {
+    position: absolute; /* Absolute positioning */
+    top: 20px; /* Distance from top */
+    left: 20px; /* Distance from left */
+    text-align: center; /* Center text below the button */
+}
+
+button.goToHome {
+    background-color: #4caf50; /* Green background */
+    border: none; /* Remove border */
+    border-radius: 50%; /* Circular shape */
+    width: 50px; /* Set width */
+    height: 50px; /* Set height */
+    display: flex; /* Use flexbox to center the icon */
+    justify-content: center; /* Center icon horizontally */
+    align-items: center; /* Center icon vertically */
+    cursor: pointer; /* Change cursor on hover */
 }
 
 /* Button hover effect */
-#uploadButton:hover {
+button.goToHome:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+button.uploadButton:hover {
     transform: scale(1.05); /* Slightly grow on hover */
 }
 
 #userDetails {
-    margin: 20px 0;
-    padding: 15px;
-    border: 1px solid #ccc; /* Light border */
-    border-radius: 10px; /* Rounded corners */
+    margin: 20px auto; /* Center the box */
+    padding: 20px; /* Increased padding for better spacing */
+    border: 1px solid #e0e0e0; /* Softer border color */
+    border-radius: 12px; /* Slightly larger rounded corners */
     background-color: #ffffff; /* White background for user details */
-    width: 80%; /* Width for user details box */
-    max-width: 600px; /* Maximum width */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    background-image: url('Dtext.jpg'); /* Background image */
+    background-size: cover; /* Cover the entire area */
+    background-position: center; /* Center the image */
+    width: max-content; /* Width fits the maximum content */
+    min-width: 300px; /* Minimum width to maintain usability */
+    max-width: 600px; /* Maximum width for larger screens */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Deeper shadow for depth */
+    color: #333; /* Text color */
+    text-align: left; /* Left-align text for readability */
 }
 
-button {
-    padding: 10px 20px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.2s ease;
-    margin: 5px; /* Space between buttons */
-}
-
-/* Styles for buttons */
-button:hover {
-    transform: scale(1.05); /* Slightly grow on hover */
-}
-
-button:nth-of-type(1) {
-    background-color: #4caf50; /* Green for Go to User Home */
-    color: white;
-}
-
-button:nth-of-type(1):hover {
-    background-color: #45a049; /* Darker green on hover */
-}
-
-button:nth-of-type(2) {
+/* Position the logout button */
+button.logout {
+    position: absolute; /* Absolute positioning */
+    bottom: 20px; /* Distance from bottom */
+    left: 20px; /* Distance from left */
     background-color: #f44336; /* Red for Logout */
     color: white;
 }
 
-button:nth-of-type(2):hover {
+/* Position the remove account button */
+button.remove-account {
+    position: absolute; /* Absolute positioning */
+    bottom: 80px; /* Distance from bottom, adjust as needed */
+    left: 20px; /* Distance from left */
+    background-color: #007bff; /* Blue for Remove Account */
+    color: white;
+}
+
+/* Button hover effects */
+button.logout:hover {
     background-color: #e53935; /* Darker red on hover */
+}
+
+button.remove-account:hover {
+    background-color: #0056b3; /* Darker blue on hover */
 }
 
 /* Media Query for Responsive Design */

@@ -8,25 +8,32 @@
 </head>
 <body>
 
-    <h1>User Details</h1>
+    <h1>Account</h1> <!-- Changed from User Details to Account -->
     
     <div id="profilePictureSection">
         <input type="file" id="profileImageInput" accept="image/*" style="display: none;" onchange="loadProfileImage(event)">
-        <button id="uploadButton" onclick="document.getElementById('profileImageInput').click();">
-            Upload Profile Picture
-        </button>
+        <button id="uploadButton" class="uploadButton" onclick="document.getElementById('profileImageInput').click();"></button>
+        <p style="margin-top: 10px; color: #333;">Upload Profile Picture</p>
     </div>
     
     <div id="userDetails" style="display: none;">
-        <!-- User details content can be dynamically inserted here -->
         <p>Name: John Doe</p>
         <p>Email: johndoe@example.com</p>
         <p>Role: User</p>
     </div>
     
-    <div>
-        <button onclick="goToUserHome()">Go to User Home</button>
-        <button onclick="logout()">Logout</button>
+    <div class="top-right">
+        <div class="home-container">
+            <button class="goToHome" onclick="goToUserHome()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" viewBox="0 0 24 24">
+                    <path d="M12 3l10 9h-3v9H5v-9H2l10-9z"/>
+                </svg>
+            </button>
+            <p class="home-text">Home</p> <!-- Home label -->
+        </div>
+        
+        <button class="logout" onclick="logout()">Log out</button>
+        <button class="remove-account" onclick="removeAccount()">Delete Account</button> <!-- Changed to Delete Account -->
     </div>
 
     <script src="st.js"></script> <!-- Main JavaScript file -->
