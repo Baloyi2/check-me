@@ -1,0 +1,86 @@
+/* profile.css */
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #f06, #4a90e2); /* Gradient background */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+input {
+    width: 40%; /* Set width to 55% */
+    padding: 15px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: box-shadow 0.3s;
+}
+
+/* Input focus effect */
+input:focus {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    outline: none;
+}
+
+input::placeholder {
+    color: #e0e0e0; /* Light placeholder color */
+}
+
+button {
+    width: max-content; /* Set width to 55% */
+    padding: 15px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: #5cb85c; /* Green button */
+    color: white;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Button hover effects */
+button:hover {
+    background-color: #4cae4c; /* Darker green on hover */
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+button:last-of-type {
+    background-color: #d9534f; /* Red button for "Back to Home" */
+}
+
+button:last-of-type:hover {
+    background-color: #c9302c; /* Darker red on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem; /* Smaller font size for smaller screens */
+    }
+
+     button {
+        width: 20%; /* Make inputs and buttons wider on small screens */
+    }
+}

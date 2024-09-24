@@ -194,3 +194,9 @@ function loadProfileImage(event) {
 if (document.getElementById('userDetails')) {
     window.onload = displayUserDetails;
 }
+
+// Toggle password visibility
+document.getElementById('togglePassword').addEventListener('change', function() {
+    const passwordInput = document.getElementById('newPassword');
+    passwordInput.type = this.checked ? 'text' : 'password';
+});

@@ -10,12 +10,17 @@
 
     <h1>Create Account</h1>
     <div>
-    <input type="text" id="newName" placeholder="Enter your name" required>
-    <input type="text" id="newSurname" placeholder="Enter your surname" required>
-    <input type="text" id="newUsername" placeholder="Enter your username" required>
-    <input type="email" id="newEmail" placeholder="Enter your email" required>
-    <input type="password" id="newPassword" placeholder="Enter your password" required>
-</div>
+        <input type="text" id="newName" placeholder="Enter your name" required>
+        <input type="text" id="newSurname" placeholder="Enter your surname" required>
+        <input type="text" id="newUsername" placeholder="Enter your username" required>
+        <input type="email" id="newEmail" placeholder="Enter your email" required>
+        <div style="position: relative;">
+            <input type="password" id="newPassword" placeholder="Enter your password" required>
+            <label style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%);">
+                <input type="checkbox" id="togglePassword"> Show
+            </label>
+        </div>
+    </div>
     <button onclick="createAccount()">Sign Up</button>
     <button onclick="goToHome()">Back</button> <!-- Changed button text here -->
 
