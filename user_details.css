@@ -121,6 +121,7 @@ button.remove-account:hover {
     }
 
     button {
-        width: 100%; /* Full width on small screens */
+        width: auto; /* Set width to auto to fit content */
+        padding: 10px 20px; /* Add padding for better appearance */
     }
 }
