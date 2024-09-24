@@ -38,22 +38,38 @@ h1 {
     text-align: center; /* Center text in container */
 }
 
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-     /* Set width to 50% */
+input {
+    width: 55%; /* Set width to 55% for all inputs */
     padding: 12px;
     margin: 10px 0;
-    border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
-    line-height: 1.5; /* Consistent line height */
-    display: inline-block; /* Align inputs consistently */
     transition: border-color 0.3s;
 }
 
+/* Specific styling for each input type */
+.input-name {
+    border: 1px solid #007bff; /* Blue border */
+}
+
+.input-surname {
+    border: 1px solid #ffc107; /* Yellow border */
+}
+
+.input-username {
+    border: 1px solid #28a745; /* Green border */
+}
+
+.input-email {
+    border: 1px solid #17a2b8; /* Teal border */
+}
+
+.input-password {
+    border: 1px solid #dc3545; /* Red border */
+}
+
 input:focus {
-    border-color: #5cb85c;
+    border-color: #5cb85c; /* Change border color on focus */
     outline: none;
 }
 
