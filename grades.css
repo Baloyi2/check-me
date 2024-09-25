@@ -25,6 +25,10 @@ button {
     transition: background 0.3s ease, transform 0.2s ease;
 }
 
+button i {
+    margin-right: 8px; /* Space between the icon and text */
+}
+
 button:hover {
     transform: scale(1.05);
 }
@@ -57,6 +61,35 @@ button:hover:nth-child(3) {
     background-color: #5abf6b; /* Darker shade on hover for Grade 12 */
 }
 
+/* Apps Button Styles */
+#appsButton {
+    padding: 10px; /* Add padding */
+    background-color: #007bff; /* Button color */
+    color: white; /* Icon color */
+    border: none; /* No border */
+    border-radius: 50%; /* Rounded shape */
+    cursor: pointer; /* Pointer on hover */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition */
+    display: flex; /* Flexbox for centering */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    width: 50px; /* Set width */
+    height: 50px; /* Set height */
+    position: absolute; /* Position it absolutely */
+    top: 20px; /* Distance from top */
+    left: 20px; /* Distance from left */
+}
+
+#appsButton:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: scale(1.05); /* Scale effect on hover */
+}
+
+#appsButton i {
+    font-size: 20px; /* Icon size */
+}
+
+/* Responsive Design */
 @media (max-width: 600px) {
     h1 {
         font-size: 2rem;

@@ -1,0 +1,70 @@
+/* styles.css */
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #6a82fb, #fc5c7d); /* Gradient background */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+button {
+    padding: 15px 25px;
+    margin: 10px;
+    font-size: 1.2rem;
+    color: white;
+    background-color: #007bff; /* Button color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+    transform: scale(1.05); /* Slight scale effect */
+}
+
+a {
+    color: #ffffff; /* Link color */
+    text-decoration: none; /* Remove underline */
+    margin-top: 20px;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #ffcc00; /* Change link color on hover */
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem; /* Smaller font size for smaller screens */
+    }
+
+    button {
+        width: 90%; /* Make buttons wider on small screens */
+        font-size: 1rem;
+    }
+
+    a {
+        font-size: 0.9rem; /* Smaller link text */
+    }
+}

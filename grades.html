@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grades Page</title>
     <link rel="stylesheet" href="grades.css"> <!-- Link to the CSS file -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome -->
 </head>
 <body>
     <h1>Select a Grade</h1>
@@ -12,6 +13,9 @@
         <button onclick="goToGrade(10)">Grade 10 Math</button>
         <button onclick="goToGrade(11)">Grade 11 Math</button>
         <button onclick="goToGrade(12)">Grade 12 Math</button>
+        <button id="appsButton" onclick="goToApps()">
+            <i class="fas fa-arrow-left"></i> <!-- Arrow icon -->
+        </button>
     </div>
 
     <script src="grade.js"></script> <!-- Link to the JavaScript file -->
